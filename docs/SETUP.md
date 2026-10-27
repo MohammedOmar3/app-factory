@@ -45,7 +45,7 @@ Also: `npm i -g eas-cli`, `eas login`.
 ## 3. Install App Factory
 
 ```sh
-claude plugin marketplace add OWNER/app-factory
+claude plugin marketplace add MohammedOmar3/app-factory
 claude plugin install app-factory@app-factory
 ```
 
