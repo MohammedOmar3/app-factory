@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: gate-g1-open
+description: Asking to build before G1 is approved should be flagged, not silently done.
+tags: [core, gates]
+context:
+  scaffold_script: setup.sh

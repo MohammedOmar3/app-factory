@@ -1,0 +1,16 @@
+{
+  "$comment": "Your personal values for app-factory. Lives at the root of your template repo (and every app made from it). The skill reads it; Phase 0 creates it if missing.",
+  "owner": "Your Name",
+  "webBaseUrl": "https://example.com",
+  "bundleIdPrefix": "com.example",
+  "supportEmail": "support@example.com",
+  "sentry": { "org": "your-sentry-org", "region": "eu" },
+  "github": {
+    "owner": "your-github-user",
+    "factoryRepo": "your-github-user/app-factory",
+    "templateRepo": "your-github-user/expo-app-factory",
+    "websiteRepoPath": ""
+  },
+  "googlePlayAccount": "personal",
+  "prices": { "monthly": null, "annual": null, "lifetime": null }
+}

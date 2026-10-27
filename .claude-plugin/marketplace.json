@@ -1,0 +1,12 @@
+{
+  "name": "app-factory",
+  "description": "App Factory: an idea-to-store pipeline for Expo apps",
+  "owner": { "name": "app-factory contributors" },
+  "plugins": [
+    {
+      "name": "app-factory",
+      "source": "./",
+      "description": "Idea to App Store and Google Play in 14 days with Expo, Supabase, RevenueCat, Sentry and EAS, with gates, reviews and a retro loop."
+    }
+  ]
+}

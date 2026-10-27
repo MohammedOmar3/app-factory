@@ -1,0 +1,9 @@
+{
+  "name": "app-factory",
+  "version": "0.1.0",
+  "description": "Idea to App Store and Google Play in 14 days, without a Mac: a gated pipeline over Expo, Supabase, RevenueCat, Sentry and EAS that orchestrates superpowers, Expo, Apple product and vendor skills, and improves itself through per-app retros.",
+  "author": { "name": "app-factory contributors" },
+  "repository": "https://github.com/OWNER/app-factory",
+  "license": "MIT",
+  "keywords": ["expo", "react-native", "ios", "android", "app-store", "supabase", "revenuecat", "sentry", "eas"]
+}
