@@ -38,7 +38,7 @@ It doesn't replace the specialist skills; it **orchestrates** them and keeps the
 ## Install
 
 ```sh
-claude plugin marketplace add OWNER/app-factory
+claude plugin marketplace add MohammedOmar3/app-factory
 claude plugin install app-factory@app-factory
 ```
 
