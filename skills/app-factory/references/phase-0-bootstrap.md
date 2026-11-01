@@ -10,6 +10,8 @@ Goal: a renamed copy of the template with every service wired, running on the us
 
 ## Ask (one batch)
 
+Only these three questions. Missing config keys (`business`, `github.appSitesRepo`, `figma`) are asked in the step that uses them, not here.
+
 1. App name and slug (slug = lowercase, used for bundle id `<bundleIdPrefix>.<slug>`, Sentry project, web folder).
 2. One-line pitch.
 3. Prices: monthly, annual, lifetime (recommend: annual ≈ 4-5× monthly, lifetime ≈ 2.5× annual). "Decide later" is allowed; products are then created in Phase 4.

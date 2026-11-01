@@ -4,6 +4,7 @@ Cross-app log. One line per lesson that changed the factory, newest first. Per-a
 
 | Date | App | Lesson | Change | PR |
 | --- | --- | --- | --- | --- |
+| 2026-11-01 | (design review, D-0004) | Brand, store assets, revenue proof and compliance were missing or one vague line, so apps could ship without a way to be found or to earn | G1 revenue analysis, Brand & ASO step with S1-S3, compliance thread, store assets in Phase 6 | #3 |
 | 2026-11-01 | Factory Test (template) | Native Apple sign-in failed: "Unacceptable audience in id_token" | Phase 0 checklist: bundle id in Supabase Apple Client IDs | #2 |
 | 2026-11-01 | Factory Test (template) | Email sign-in sent links, not codes; templates can't be edited without custom SMTP | Phase 0 checklist: Resend SMTP + `supabase/templates/` | #2 |
 | 2026-11-01 | Factory Test (template) | First iOS dev build failed non-interactively (ad hoc profile needs Apple login) | Phase 0 step 10: first build in the user's terminal | #2 |

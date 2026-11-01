@@ -105,7 +105,7 @@ At each gate and sign-off: write the decision with the date into `docs/STATUS.md
 
 ## Rules for every phase
 
-- Ask at most 3 questions at a time, multiple choice where possible. Recommend an answer.
+- Ask at most 3 questions at a time, multiple choice where possible. Recommend an answer. Every question counts, including setup issues you notice (missing template files, empty config keys): don't raise those up front; handle each in the step that needs it, or note it in STATUS.
 - Scope guard: anything not in SPEC.md goes to `LATER.md`. Adding to v1 requires the user to drop something of equal size.
 - Day budget: compare progress to the 14-day playbook in `references/phase-3-plan.md`. If a phase runs over, say so and propose a cut.
 - Evidence before claims (superpowers:verification-before-completion): never say "done" without the command output, the preview link, or the screenshot that shows it.

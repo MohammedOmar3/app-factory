@@ -31,6 +31,14 @@ npx skills add callstackincubator/agent-skills --skill react-native-best-practic
 
 Install just that skill, not Callstack's `building-react-native-apps` plugin: the plugin also brings react-navigation and upgrade skills that compete with Expo Router and expo-upgrade.
 
+For the Brand & ASO step and store assets (`references/brand.md`):
+
+```sh
+claude plugin install figma@claude-plugins-official      # official Figma MCP (remote server; writes to the canvas)
+```
+
+Figma needs a Professional plan seat that includes the MCP server (check Figma's pricing page). Image generation needs one MCP server for Google's Gemini image models; until it's chosen and its install line is added here, `references/brand.md` step 4 stops at the image steps and tells the user.
+
 Nothing to install for Vercel's React Native rules or Draftbit's design review: they ship inside this skill under `vendor/`. Supabase's postgres best-practices skill comes with the supabase plugin.
 
 Do **not** install `apple@indie-apple-stack` (SwiftShip). Its `/apple:*` commands run a Swift/Xcode workflow that competes with this one.
@@ -43,7 +51,7 @@ Ask Claude to confirm each of these is available and report any missing:
 
 - Skills: `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:executing-plans`, `superpowers:verification-before-completion`, `expo-overview`, `eas-workflows`, `apple-skills:product`, `apple-skills:app-store`, `supabase-postgres-best-practices`
 - Files: `vendor/react-native-skills/INDEX.md`, `vendor/mobile-taste/skills/mobile-design-review/REVIEW.md`
-- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I")
+- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I"); figma (creates a frame in a test file); the image-generation server once installed (returns one image)
 - CLIs: `eas whoami`, `gh auth status`
 
 ## Project settings (commit to the template)
@@ -55,7 +63,8 @@ Ask Claude to confirm each of these is available and report any missing:
   "enabledPlugins": {
     "expo@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "supabase@claude-plugins-official": true
+    "supabase@claude-plugins-official": true,
+    "figma@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "indie-apple-stack": { "source": { "source": "github", "repo": "rshankras/claude-code-apple-skills" } },
