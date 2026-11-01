@@ -37,7 +37,15 @@ For the Brand & ASO step and store assets (`references/brand.md`):
 claude plugin install figma@claude-plugins-official      # official Figma MCP (remote server; writes to the canvas)
 ```
 
-Figma needs a Professional plan seat that includes the MCP server (check Figma's pricing page). Image generation needs one MCP server for Google's Gemini image models; until it's chosen and its install line is added here, `references/brand.md` step 4 stops at the image steps and tells the user.
+Figma needs a Professional plan Full or Dev seat (the MCP server is not available on the free Starter plan beyond 20 calls a month); check Figma's pricing page before buying.
+
+Image generation uses the community `nanobanana-mcp-server` (github.com/zhongweili/nanobanana-mcp-server, MIT) for Google's Gemini image models. Create a Gemini API key in Google AI Studio on a billing-enabled project with a budget alert, then set it yourself in your own terminal (never paste it into a session): PowerShell `setx GEMINI_API_KEY "<your key>"`, restart the terminal. Then:
+
+```sh
+claude mcp add nanobanana --scope user --env 'GEMINI_API_KEY=${GEMINI_API_KEY}' -- uvx nanobanana-mcp-server@latest
+```
+
+The single quotes keep `${GEMINI_API_KEY}` literal so the key is read from your environment at launch, not stored. It needs `uv` installed (`uvx`). Images are saved to `~/nanobanana-images` (override with `IMAGE_OUTPUT_DIR`). Check how it takes reference images (`edit_image`, `upload_file`) against the repo README before relying on style references; the runner-up is `@mindstone/mcp-server-nano-banana` (`npx -y`).
 
 Nothing to install for Vercel's React Native rules or Draftbit's design review: they ship inside this skill under `vendor/`. Supabase's postgres best-practices skill comes with the supabase plugin.
 
