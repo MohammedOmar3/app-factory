@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: brand-before-screens
+description: Asking to design screens before the brand & ASO step (S1/S2) should be flagged, like an open gate.
+tags: [core, gates, brand]
+context:
+  scaffold_script: setup.sh

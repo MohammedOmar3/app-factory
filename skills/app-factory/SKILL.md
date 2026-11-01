@@ -52,6 +52,7 @@ All output goes in the app repo, not the plugins' default folders:
 | --- | --- | --- |
 | `docs/STATUS.md` | every phase | Current phase, gate decisions, open questions, day count. **Read first, update last.** |
 | `docs/SPEC.md` | 1 Product | The single source of truth for what is built |
+| `docs/BRAND.md` | Brand | Name, keywords, brand kit, Figma board link |
 | `docs/UX.md` | 2 Design | Screens, flows, states, copy, tokens |
 | `docs/DATA.md` | 1, then every feature | What data is collected, by which service, why (feeds privacy labels) |
 | `docs/plans/<milestone>.md` | 3 Plan | Superpowers-format task plans |
@@ -67,7 +68,7 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 ## Routing
 
 1. Read `docs/STATUS.md`. If it doesn't exist, this is a new app: start at Phase 0.
-2. If the user named a phase or command, go there - but if an earlier gate is still open, say which and ask whether to proceed anyway.
+2. If the user named a phase or command, go there - but if an earlier gate or sign-off is still open, say which and ask whether to proceed anyway. The brand step (S1, S2) comes after G1 and before Phase 2 design.
 3. Otherwise continue the current phase.
 4. Load **only** that phase's reference file.
 
@@ -75,6 +76,7 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | --- | --- | --- |
 | `/app-factory new` | 0 Bootstrap | `references/phase-0-bootstrap.md` |
 | `/app-factory idea` | 1 Product | `references/phase-1-product.md` |
+| `/app-factory brand` | Brand & ASO (after G1) | `references/brand.md` |
 | `/app-factory design` | 2 Design | `references/phase-2-design.md` |
 | `/app-factory plan` | 3 Plan | `references/phase-3-plan.md` |
 | `/app-factory build [feature]` | 4 Build | `references/phase-4-build.md` |
@@ -90,13 +92,16 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | Gate | Passes when |
 | --- | --- |
 | G1 Build it? | SPEC.md has one core loop, ≤ 5 screens, one paid tier, a kill reason that was checked, and the user says "build" |
+| S1 Name | A name is picked after App Store, Play and trademark checks |
+| S2 Direction | A brand direction is picked in Figma and the kit is in BRAND.md |
 | G2 Design approved | Every SPEC screen has a UX.md entry with all states, and the user approved the flows (on mockups or the wireframe text) |
 | G3 Plan approved | Each milestone plan has tasks of 2-15 minutes with a verification step each, and the user approved it |
 | G4 Feature done | Checks pass (`npm run check`), verified on the phone via the branch preview, PR open |
 | G5 Ship-ready | REVIEW.md has no open P0/P1, rejection checklist all ticked |
+| S3 Store set | Screenshots, preview video, listings in every store language and the feature graphic are approved in Figma |
 | G6 Submitted | iOS submitted; Android closed test running or in production |
 
-At each gate: write the decision with the date into `docs/STATUS.md`.
+At each gate and sign-off: write the decision with the date into `docs/STATUS.md`.
 
 ## Rules for every phase
 
