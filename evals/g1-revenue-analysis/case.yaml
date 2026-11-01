@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: g1-revenue-analysis
+description: At G1 the skill checks the idea against the revenue bar and a legal screen, recommends, and leaves the decision to the user (no auto-kill).
+tags: [core, gates, money]
+context:
+  scaffold_script: setup.sh
