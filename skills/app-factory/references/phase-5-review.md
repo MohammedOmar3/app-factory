@@ -74,7 +74,7 @@ Use a **fresh subagent**. Every finding is **P0**. Check against the current pub
 - **App Store:** guidelines 2.3.7 (no competitor names or trademarks in metadata or keywords), 3.1.1/3.1.2 (purchases and subscriptions), 4.3 (originality), 5.1.1 (data collection, account deletion), age rating answers match the content.
 - **Google Play:** subscriptions policy, Families policy (if the app could attract children), target API level, Data safety answers, account-deletion URL.
 - **Privacy law (GDPR, UK GDPR, CCPA, and the privacy law where `business.residence` is, for example UAE PDPL for AE):** the privacy policy lists every processor in DATA.md with lawful basis and retention; export and deletion work end to end; no data goes to a processor that isn't listed.
-- **Consumer law for subscriptions:** auto-renew disclosure next to the price, a clear cancellation path, tax-inclusive prices, refund wording consistent across Apple, Google Play and Paddle.
+- **Consumer law for subscriptions:** auto-renew disclosure next to the price, a clear cancellation path, tax-inclusive prices, refund wording consistent across Apple and Google Play.
 - **Age:** store age signals handled as the template implements them; the audience matches the age rating and SPEC §11.
 - **Brand and content:** the trademark search for the name in BRAND.md; the image provider's commercial-use terms recorded; no other brand's assets.
 - **Territories:** availability excludes SPEC §11 territories; the category's licensing needs are met where it's sold.

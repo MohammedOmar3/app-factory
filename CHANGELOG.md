@@ -4,6 +4,8 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 ## Unreleased
 
+- In-app purchases only (D-0005): web sales dropped in the process. Seller and DSA contact use a virtual business address, business email and phone; personal details only if Apple rejects the virtual address.
+
 ## 0.2.0 - 2026-11-01
 
 Money-ready process (design approved 2026-11-01, decision D-0004): every app is planned for revenue, branded with user sign-offs, compliant, and store-ready inside 14 days.

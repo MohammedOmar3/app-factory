@@ -35,7 +35,7 @@ Don't write UI snapshot tests or E2E suites for v1; device review is the UI test
 | 01 | Data + auth for this app | Day 5 | Tables, RLS, types, sign-in options wired, account deletion verified |
 | 02 | Core loop | Day 6 | The SPEC core loop end to end on real data; merge → first TestFlight + Play internal build |
 | 03 | Remaining features | Day 8 | Other SPEC screens, all UX states |
-| 04 | Monetization | Day 9 | Products (RevenueCat MCP, all territories except SPEC §11), trial or intro offer, onboarding and feature paywall slots, gating client + server, restore, Customer Center win-back, a RevenueCat Experiment set up (not started), Paddle web product mapped to `pro` |
+| 04 | Monetization | Day 9 | Products (RevenueCat MCP, all territories except SPEC §11), trial or intro offer, onboarding and feature paywall slots, gating client + server, restore, Customer Center win-back, a RevenueCat Experiment set up (not started) |
 | 05 | Polish | Day 10 | Brand kit applied (icon variants, splash, in-app imagery), rating prompt and push moments from UX.md §Moments, haptics, accessibility, offline/error states, Sentry triage of TestFlight crashes |
 | 06 | Store assets | Day 12 | Phase 6 steps 1-7 (copy, screenshots, video, assets, privacy answers, web deploy, S3) |
 | 07 | Release | Day 12 | Phase 6 submission |

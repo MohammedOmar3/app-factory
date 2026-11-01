@@ -18,7 +18,7 @@ Personal values (domain, bundle id prefix, Sentry org, repos) live in `app-facto
 - **Money:** RevenueCat. One entitlement `pro`; products monthly, annual, lifetime (consumables only if the spec needs them).
 - **Crashes:** Sentry (EU). **Analytics:** no third-party analytics SDKs and no tracking; funnel events go to EAS Observe or an owner-only Supabase `events` table.
 - **Delivery:** GitHub + EAS Workflows (preview updates on branches, fingerprint build-or-update on `main`), EAS Submit, EAS Metadata.
-- **Web:** landing page, privacy / support / terms and a delete-account page at `<webBaseUrl>/<slug>/`; web checkout through Paddle via RevenueCat.
+- **Web:** landing page, privacy / support / terms and a delete-account page at `<webBaseUrl>/<slug>/`.
 - **Timebox:** 14 days to iOS submission; Android production after the 14-day closed test.
 
 If any borrowed skill proposes something else (SwiftUI, StoreKit directly, Firebase, GitHub Actions, Xcode Cloud, TelemetryDeck, a custom server), keep its *reasoning* and translate the *implementation* into the contract. Say so in one line when you do.
