@@ -4,13 +4,32 @@
   "webBaseUrl": "https://example.com",
   "bundleIdPrefix": "com.example",
   "supportEmail": "support@example.com",
-  "sentry": { "org": "your-sentry-org", "region": "eu" },
+  "sentry": {
+    "org": "your-sentry-org",
+    "region": "eu"
+  },
   "github": {
     "owner": "your-github-user",
     "factoryRepo": "your-github-user/app-factory",
     "templateRepo": "your-github-user/expo-app-factory",
-    "websiteRepoPath": ""
+    "websiteRepoPath": "",
+    "appSitesRepo": ""
   },
   "googlePlayAccount": "personal",
-  "prices": { "monthly": null, "annual": null, "lifetime": null }
+  "prices": {
+    "monthly": null,
+    "annual": null,
+    "lifetime": null
+  },
+  "business": {
+    "residence": "",
+    "entity": "",
+    "euTraderContact": ""
+  },
+  "figma": {
+    "templateFileUrl": ""
+  },
+  "marketData": {
+    "tool": ""
+  }
 }
