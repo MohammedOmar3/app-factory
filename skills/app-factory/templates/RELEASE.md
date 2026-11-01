@@ -1,6 +1,18 @@
 # <App name> — release copy
 
-## App Store
+## App Store, per locale
+| Locale | Name (30) | Subtitle (30) | Keywords (100) | Promo (170) |
+| --- | --- | --- | --- | --- |
+| en | | | | |
+| de | | | | |
+| fr | | | | |
+| es | | | | |
+| ja | | | | |
+| pt-BR | | | | |
+| ar | | | | |
+| extra keyword locales (per storefront) | | | | |
+
+## App Store, shared
 | Field | Limit | Text |
 | --- | --- | --- |
 | Name | 30 | |
@@ -24,6 +36,15 @@
 | Short description | 80 | |
 
 ### Full description (4000)
+
+## Assets
+| Asset | Spec | Figma frame | Approved (S3) |
+| --- | --- | --- | --- |
+| Screenshots, per locale | 6.9" iPhone, 5-8 frames | | |
+| App preview video | 15-30 s, 6.9" | | |
+| Play feature graphic | 1024×500 | | |
+| IAP review screenshots | real paywall | | |
+| Icon variants | iOS light/dark/tinted, Android adaptive, Play 512 | | |
 
 ## Screenshots
 | # | Screen | Caption |
