@@ -1,7 +1,7 @@
 # <App name> — v1 spec
 
 ## 1. Name and pitch
-- Name: (3 candidates checked; chosen one first)
+- Working title: (final name: docs/BRAND.md §Name)
 - One sentence: For <who> who <pain>, <app> <does what>, unlike <alternative>.
 
 ## 2. Problem

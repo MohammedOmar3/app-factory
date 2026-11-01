@@ -1,6 +1,6 @@
 # Phase 2: Design (SPEC.md → approved UX.md + clickable prototype)
 
-Goal: every screen, flow, state and string decided before feature code, and approved on the real phone. Target: day 2-3. Gate G2.
+Goal: every screen, flow, state and string decided before feature code, and approved on the real phone. Target: day 3 (G2 on day 4). Gate G2.
 
 ## Skills used
 

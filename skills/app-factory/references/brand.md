@@ -28,7 +28,7 @@ Claude proposes; the user picks and signs off. The user never designs by hand. V
 
 ## Rules
 
-- Stay inside the 1.5-day budget: if S2 isn't signed off by the end of day 3, cut to 2 directions or fewer images and say so in STATUS.
+- Stay inside the 1.5-day budget. If S1 isn't picked by the end of day 2, propose showing 2 directions instead of 3 and fewer generated images. If S2 isn't signed off by the end of day 3, propose concrete cuts to the kit (for example defer in-app imagery to M05). Note either in STATUS.
 - Brand work never changes the stack contract or styling rules (StyleSheet + tokens).
 - Phase 2 screen design starts only after S2. If asked earlier, say S1/S2 are open and ask whether to finish them first.
 

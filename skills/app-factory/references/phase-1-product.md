@@ -23,7 +23,7 @@ Run the product validation steps on the idea, adapted:
 | MVP scoping | Core loop + must-haves only | §5 Scope |
 | Positioning | One sentence value prop, the differentiator | §3 Positioning |
 | Monetization | Free vs `pro` split, prices | §6 Monetization |
-| App naming | 3 candidates, checked for store collisions | §1 Name |
+| App naming | Working title only; the final name is picked at S1 in the brand step | §1 Working title |
 | Originality check (app-store) | Guideline 4.3 risk: is this a clone or template-ish? | §8 Risks |
 
 Skip market sizing (TAM/SAM/SOM); it doesn't change a 14-day decision.

@@ -12,7 +12,7 @@ A checklist to verify with official sources; not tax or legal advice. Values com
 
 ## Tax and registrations
 
-- [ ] Registrations required where `business.residence` is (for the UAE: check corporate-tax registration duties and thresholds as turnover grows; confirm on the official tax authority's site)
+- [ ] Registrations required where `business.residence` is (for example in the UAE, corporate-tax registration duties and thresholds as turnover grows; confirm on the official tax authority's site)
 - [ ] Records of store, Paddle and RevenueCat payouts kept per month
 
 ## EU Digital Services Act trader status
@@ -21,7 +21,7 @@ A checklist to verify with official sources; not tax or legal advice. Values com
 
 ## Data processing agreements
 
-- [ ] Accepted (usually a dashboard click or terms page) with: Supabase, Sentry, RevenueCat, Resend, Paddle, and the image-generation provider if user data is ever sent to it
+- [ ] Accepted (usually a dashboard click or terms page) with: Supabase, Sentry, RevenueCat, Resend, Paddle, Expo (push service, EAS Observe), and the image-generation provider if user data is ever sent to it
 
 ## Legal review
 

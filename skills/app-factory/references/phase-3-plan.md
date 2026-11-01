@@ -1,6 +1,6 @@
 # Phase 3: Plan (SPEC + UX → milestone plans)
 
-Goal: the build broken into small, verifiable tasks the user approved. Target: day 3. Gate G3.
+Goal: the build broken into small, verifiable tasks the user approved. Target: day 4. Gate G3.
 
 ## Skill
 
@@ -32,12 +32,12 @@ Don't write UI snapshot tests or E2E suites for v1; device review is the UI test
 
 | # | Milestone | Ends by | Includes |
 | --- | --- | --- | --- |
-| 01 | Data + auth for this app | Day 4 | Tables, RLS, types, sign-in options wired, account deletion verified |
-| 02 | Core loop | Day 5 | The SPEC core loop end to end on real data; merge → first TestFlight + Play internal build |
+| 01 | Data + auth for this app | Day 5 | Tables, RLS, types, sign-in options wired, account deletion verified |
+| 02 | Core loop | Day 6 | The SPEC core loop end to end on real data; merge → first TestFlight + Play internal build |
 | 03 | Remaining features | Day 8 | Other SPEC screens, all UX states |
 | 04 | Monetization | Day 9 | Products (RevenueCat MCP, all territories except SPEC §11), trial or intro offer, onboarding and feature paywall slots, gating client + server, restore, Customer Center win-back, a RevenueCat Experiment set up (not started), Paddle web product mapped to `pro` |
 | 05 | Polish | Day 10 | Brand kit applied (icon variants, splash, in-app imagery), rating prompt and push moments from UX.md §Moments, haptics, accessibility, offline/error states, Sentry triage of TestFlight crashes |
-| 06 | Store assets | Day 12 | Phase 6 steps 1-5, S3 sign-off |
+| 06 | Store assets | Day 12 | Phase 6 steps 1-7 (copy, screenshots, video, assets, privacy answers, web deploy, S3) |
 | 07 | Release | Day 12 | Phase 6 submission |
 
 ## The 14-day budget
@@ -57,7 +57,7 @@ Don't write UI snapshot tests or E2E suites for v1; device review is the UI test
 | 13-14 | Review buffer, fixes |
 | outside the 14 days | Play production after the 14-day closed test with 12+ testers |
 
-Compare actual progress to this table at every gate and sign-off and in `/app-factory status`. If more than one day behind, propose specific cuts from SPEC.md §5 (move to LATER.md). If S2 isn't signed off by the end of day 3, propose brand cuts (2 directions instead of 3, fewer generated images) and note it in STATUS.
+Compare actual progress to this table at every gate and sign-off and in `/app-factory status`. If more than one day behind, propose specific cuts from SPEC.md §5 (move to LATER.md). If S1 isn't picked by the end of day 2, propose showing 2 directions instead of 3 and fewer generated images. If S2 isn't signed off by the end of day 3, propose concrete cuts to the kit (for example defer in-app imagery to M05). Note either in STATUS.
 
 ## Gate G3
 

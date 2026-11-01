@@ -16,9 +16,9 @@ Personal values (domain, bundle id prefix, Sentry org, repos) live in `app-facto
 - **App:** Expo (latest SDK), Expo Router, TypeScript strict, iOS + Android from one codebase, always a development build (never Expo Go workarounds).
 - **Backend:** Supabase (Postgres + RLS, Auth, Storage, Edge Functions). Auth = anonymous first, then Sign in with Apple, Google, email OTP via identity linking.
 - **Money:** RevenueCat. One entitlement `pro`; products monthly, annual, lifetime (consumables only if the spec needs them).
-- **Crashes:** Sentry (EU). **Analytics:** none.
+- **Crashes:** Sentry (EU). **Analytics:** no third-party analytics SDKs and no tracking; funnel events go to EAS Observe or an owner-only Supabase `events` table.
 - **Delivery:** GitHub + EAS Workflows (preview updates on branches, fingerprint build-or-update on `main`), EAS Submit, EAS Metadata.
-- **Web:** privacy / support / terms at `<webBaseUrl>/<slug>/`.
+- **Web:** landing page, privacy / support / terms and a delete-account page at `<webBaseUrl>/<slug>/`; web checkout through Paddle via RevenueCat.
 - **Timebox:** 14 days to iOS submission; Android production after the 14-day closed test.
 
 If any borrowed skill proposes something else (SwiftUI, StoreKit directly, Firebase, GitHub Actions, Xcode Cloud, TelemetryDeck, a custom server), keep its *reasoning* and translate the *implementation* into the contract. Say so in one line when you do.
@@ -82,7 +82,7 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | `/app-factory build [feature]` | 4 Build | `references/phase-4-build.md` |
 | `/app-factory review` | 5 Review | `references/phase-5-review.md` |
 | `/app-factory release` | 6 Release | `references/phase-6-release.md` |
-| `/app-factory status` | - | Summarise `docs/STATUS.md`: phase, day N of 14, next action, blockers |
+| `/app-factory status` | - | Summarise `docs/STATUS.md`: phase, day N of 14, next action, blockers. If there is no `docs/STATUS.md`, say there is no app in progress here and point to `/app-factory new` or the idea step; don't print a phase, day count or gate list |
 | `/app-factory fix` | any | superpowers:systematic-debugging, then Sentry MCP if it's a reported crash |
 | `/app-factory retro` | 7 Learn | `references/phase-7-improve.md` (retro section) |
 | `/app-factory improve` | 7 Learn | `references/phase-7-improve.md` (improve section) |

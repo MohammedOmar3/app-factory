@@ -8,7 +8,7 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 Money-ready process (design approved 2026-11-01, decision D-0004): every app is planned for revenue, branded with user sign-offs, compliant, and store-ready inside 14 days.
 
-- G1 adds a revenue analysis against a bar (3+ competitors in the top 200 grossing, a subscription app with 1,000+ ratings) and a legal screen for regulated categories. It recommends build / rework / drop; the user decides. New eval `g1-revenue-analysis`.
+- G1 adds a revenue analysis against a bar (3+ competitors in the top 200 grossing, a subscription app with 1,000+ ratings) and a legal screen for regulated categories. It recommends build / rework / drop; the user decides. New evals `g1-revenue-analysis` and `g1-build-below-bar` (the user may build below the bar; the skill records the decision).
 - New Brand & ASO step (`/app-factory brand`, `references/brand.md`, `templates/BRAND.md`): keyword research, names with store and trademark checks (S1), 2-3 directions on a Figma board (S2), brand kit (tokens, iOS light/dark/tinted icons without a Mac, Android adaptive icon, splash, image style, in-app imagery). Open sign-offs behave like open gates. New eval `brand-before-screens`.
 - Phase 2 designs inside the brand; paywall (onboarding and feature slots, trial terms, Customer Center win-back, no dark patterns), rating prompt and push permission moments in UX.md §Moments; i18n strings and RTL-safe layouts.
 - Compliance thread: `references/business-setup.md` (once per account), Phase 0 legal pages for GDPR / UK GDPR / UAE PDPL / CCPA plus a web account-deletion page in the app-sites repo, Phase 5 Pass 6 Compliance (every finding P0), DATA.md with processors, retention and lawful basis.

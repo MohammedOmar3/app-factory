@@ -27,6 +27,7 @@ Then ask the user to run these on the iPhone (and Android if available) on the l
 - Sign in with Apple, Google and email code from an anonymous user: data kept?
 - Airplane mode on each main screen; largest text size; dark mode; VoiceOver on the core loop
 - Delete account: data gone in Supabase, user signed out to a fresh anonymous session
+- Money and retention: onboarding paywall appears after the first value moment; trial terms shown; Customer Center opens from Account; rating prompt appears after a success and not again soon; push permission asked only at its moment with the priming line; funnel events recorded for the run
 
 ## Pass 3: Code and security review
 
@@ -60,11 +61,11 @@ Use apple-skills `release-review` and `app-store/originality-check` (guideline 4
 - [ ] Works without login, or review notes explain access
 - [ ] Not a thin wrapper; does something on its own
 - [ ] No mention of Android in iOS metadata and vice versa
-- [ ] IAPs have review screenshots of the real paywall (not a placeholder) and are attached to the version
+- [ ] IAP review screenshots planned from the real paywall (not a placeholder); attached to the version in Phase 6
 - [ ] Trial or intro offer terms shown on the paywall
 - [ ] Data export available in-app next to account deletion
 - [ ] Web account-deletion page live at <webBaseUrl>/<slug>/delete-account
-- [ ] Every asset in RELEASE.md §Assets approved (S3)
+- [ ] Every asset is planned in RELEASE.md §Assets (S3 approval happens in Phase 6)
 
 ## Pass 6: Compliance
 
@@ -72,7 +73,7 @@ Use a **fresh subagent**. Every finding is **P0**. Check against the current pub
 
 - **App Store:** guidelines 2.3.7 (no competitor names or trademarks in metadata or keywords), 3.1.1/3.1.2 (purchases and subscriptions), 4.3 (originality), 5.1.1 (data collection, account deletion), age rating answers match the content.
 - **Google Play:** subscriptions policy, Families policy (if the app could attract children), target API level, Data safety answers, account-deletion URL.
-- **Privacy law (GDPR, UK GDPR, UAE PDPL, CCPA):** the privacy policy lists every processor in DATA.md with lawful basis and retention; export and deletion work end to end; no data goes to a processor that isn't listed.
+- **Privacy law (GDPR, UK GDPR, CCPA, and the privacy law where `business.residence` is, for example UAE PDPL for AE):** the privacy policy lists every processor in DATA.md with lawful basis and retention; export and deletion work end to end; no data goes to a processor that isn't listed.
 - **Consumer law for subscriptions:** auto-renew disclosure next to the price, a clear cancellation path, tax-inclusive prices, refund wording consistent across Apple, Google Play and Paddle.
 - **Age:** store age signals handled as the template implements them; the audience matches the age rating and SPEC §11.
 - **Brand and content:** the trademark search for the name in BRAND.md; the image provider's commercial-use terms recorded; no other brand's assets.
