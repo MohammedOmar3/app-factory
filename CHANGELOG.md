@@ -4,6 +4,21 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 ## Unreleased
 
+- In-app purchases only (D-0005): web sales dropped in the process. Seller and DSA contact use a virtual business address, business email and phone; personal details only if Apple rejects the virtual address.
+
+## 0.2.0 - 2026-11-01
+
+Money-ready process (design approved 2026-11-01, decision D-0004): every app is planned for revenue, branded with user sign-offs, compliant, and store-ready inside 14 days.
+
+- G1 adds a revenue analysis against a bar (3+ competitors in the top 200 grossing, a subscription app with 1,000+ ratings) and a legal screen for regulated categories. It recommends build / rework / drop; the user decides. New evals `g1-revenue-analysis` and `g1-build-below-bar` (the user may build below the bar; the skill records the decision).
+- New Brand & ASO step (`/app-factory brand`, `references/brand.md`, `templates/BRAND.md`): keyword research, names with store and trademark checks (S1), 2-3 directions on a Figma board (S2), brand kit (tokens, iOS light/dark/tinted icons without a Mac, Android adaptive icon, splash, image style, in-app imagery). Open sign-offs behave like open gates. New eval `brand-before-screens`.
+- Phase 2 designs inside the brand; paywall (onboarding and feature slots, trial terms, Customer Center win-back, no dark patterns), rating prompt and push permission moments in UX.md §Moments; i18n strings and RTL-safe layouts.
+- Compliance thread: `references/business-setup.md` (once per account), Phase 0 legal pages for GDPR / UK GDPR / UAE PDPL / CCPA plus a web account-deletion page in the app-sites repo, Phase 5 Pass 6 Compliance (every finding P0), DATA.md with processors, retention and lawful basis.
+- Phase 3: 14-day budget redrawn (brand days 2-3, store assets days 11-12, Play outside the 14 days), new verification rows (push, events, RTL), `dev-build.yml` reference fixed.
+- Phase 6: listings in en, de, fr, es, ja, pt-BR, ar plus Apple's extra keyword locales with per-locale limit checks; Figma screenshot frames, app preview video, feature graphic, web deploy, S3 sign-off, global availability, monthly policy check.
+- Config: `github.appSitesRepo`, `business`, `figma.templateFileUrl`, `marketData.tool`. Setup adds the Figma MCP.
+- The 3-question rule now counts setup issues too (missing template files, empty config keys): they are handled in the step that needs them. Found by eval `idea-starts-product-phase`, which regressed when the new config keys made Phase 0 ask 5 questions.
+
 ## 0.1.1 - 2026-11-01
 
 - Phase 0 matches the finished template (lessons from building expo-app-factory with Factory Test, 2026-10-27 to 11-01): identity lives in `src/config/identity.json`; all migrations, not only `0000`; webhook deployed with `--no-verify-jwt`; workflow is `development.yml` and the first iOS dev build runs interactively; env var names listed; `docs/DATA.md` is written in step 1 because step 8 reads it.

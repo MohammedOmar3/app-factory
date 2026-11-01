@@ -14,10 +14,13 @@
 | Gate | Decision | Date | Notes |
 | --- | --- | --- | --- |
 | G1 Build it? | | | |
+| S1 Name | | | |
+| S2 Direction | | | |
 | G2 Design approved | | | |
 | G3 Plan approved | | | |
 | G4 Milestones | | | 01 / 02 / 03 / 04 / 05 |
 | G5 Ship-ready | | | |
+| S3 Store set | | | |
 | G6 Submitted | | | iOS: / Android: |
 
 ## Manual steps for the user

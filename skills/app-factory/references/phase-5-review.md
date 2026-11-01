@@ -2,7 +2,7 @@
 
 Goal: find what would cause a rejection, a crash, a refund or a bad first review, and fix the serious ones. Target: day 11 (also run a light pass after M02). Gate G5.
 
-Run the five passes in order. Use a **fresh subagent** for passes 1 and 3 where possible, so the reviewer hasn't seen the build being made. Write every finding into `docs/REVIEW.md` with a severity:
+Run the six passes in order. Use a **fresh subagent** for passes 1 and 3 where possible, so the reviewer hasn't seen the build being made. Write every finding into `docs/REVIEW.md` with a severity:
 
 - **P0** blocks submission (rejection, data leak, crash on launch, purchase broken)
 - **P1** must fix before release (core loop confusing, common crash, missing state)
@@ -27,6 +27,7 @@ Then ask the user to run these on the iPhone (and Android if available) on the l
 - Sign in with Apple, Google and email code from an anonymous user: data kept?
 - Airplane mode on each main screen; largest text size; dark mode; VoiceOver on the core loop
 - Delete account: data gone in Supabase, user signed out to a fresh anonymous session
+- Money and retention: onboarding paywall appears after the first value moment; trial terms shown; Customer Center opens from Account; rating prompt appears after a success and not again soon; push permission asked only at its moment with the priming line; funnel events recorded for the run
 
 ## Pass 3: Code and security review
 
@@ -60,8 +61,28 @@ Use apple-skills `release-review` and `app-store/originality-check` (guideline 4
 - [ ] Works without login, or review notes explain access
 - [ ] Not a thin wrapper; does something on its own
 - [ ] No mention of Android in iOS metadata and vice versa
-- [ ] IAPs have review screenshots and are attached to the version
+- [ ] IAP review screenshots planned from the real paywall (not a placeholder); attached to the version in Phase 6
+- [ ] Trial or intro offer terms shown on the paywall
+- [ ] Data export available in-app next to account deletion
+- [ ] Web account-deletion page live at <webBaseUrl>/<slug>/delete-account
+- [ ] Every asset is planned in RELEASE.md §Assets (S3 approval happens in Phase 6)
+
+## Pass 6: Compliance
+
+Use a **fresh subagent**. Every finding is **P0**. Check against the current published rules (WebFetch the source; cite it):
+
+- **App Store:** guidelines 2.3.7 (no competitor names or trademarks in metadata or keywords), 3.1.1/3.1.2 (purchases and subscriptions), 4.3 (originality), 5.1.1 (data collection, account deletion), age rating answers match the content.
+- **Google Play:** subscriptions policy, Families policy (if the app could attract children), target API level, Data safety answers, account-deletion URL.
+- **Privacy law (GDPR, UK GDPR, CCPA, and the privacy law where `business.residence` is, for example UAE PDPL for AE):** the privacy policy lists every processor in DATA.md with lawful basis and retention; export and deletion work end to end; no data goes to a processor that isn't listed.
+- **Consumer law for subscriptions:** auto-renew disclosure next to the price, a clear cancellation path, tax-inclusive prices, refund wording consistent across Apple and Google Play.
+- **Age:** store age signals handled as the template implements them; the audience matches the age rating and SPEC §11.
+- **Brand and content:** the trademark search for the name in BRAND.md; the image provider's commercial-use terms recorded; no other brand's assets.
+- **Territories:** availability excludes SPEC §11 territories; the category's licensing needs are met where it's sold.
+- **Export compliance:** only standard HTTPS encryption, so `usesNonExemptEncryption: false` stays true.
+
+End the pass with: "Not legal advice. Once the app earns, book a one-time lawyer review of the privacy policy and terms."
+
 
 ## Gate G5
 
-Summarise: P0/P1 counts (must be 0 open), what was fixed, what moved to v1.0.1. User approves. Record in STATUS.md.
+Summarise: P0/P1 counts (must be 0 open, including every Pass 6 finding), what was fixed, what moved to v1.0.1. User approves. Record in STATUS.md.

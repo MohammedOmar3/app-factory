@@ -1,7 +1,7 @@
 # <App name> — v1 spec
 
 ## 1. Name and pitch
-- Name: (3 candidates checked; chosen one first)
+- Working title: (final name: docs/BRAND.md §Name)
 - One sentence: For <who> who <pain>, <app> <does what>, unlike <alternative>.
 
 ## 2. Problem
@@ -12,8 +12,8 @@
 - Differentiator:
 
 ## 4. Competitors
-| App | Store | Price | Rating | What reviewers complain about |
-| --- | --- | --- | --- | --- |
+| App | Store | Price | Rating | Ratings | Grossing rank (US/UK) | What reviewers complain about |
+| --- | --- | --- | --- | --- | --- | --- |
 
 ## 5. Scope (v1)
 - Core loop (one line):
@@ -35,9 +35,24 @@
 - Review risks (incl. guideline 4.3 originality):
 - Technical risks (anything needing a native module):
 
-## 9. Kill criteria
-| Criterion | Checked how | Result |
+## 9. Risk check
+| Risk | Checked how | Result |
 | --- | --- | --- |
 
+## 10. Revenue analysis
+- Bar (≥ 3 competitors in top 200 grossing, US or UK; one subscription app with 1,000+ ratings): met / partly / not met
+| Competitor | Grossing rank | Ratings | Price model | Source |
+| --- | --- | --- | --- | --- |
+- Gap this app can win:
+- Risks:
+- Confidence (1-5):
+- Recommendation: build / rework / drop
+
+## 11. Legal screen
+- Category regulated or stricter review? (rule cited):
+- Likely audience age; could it attract children?:
+- Territories to exclude (default: mainland China):
+- Rules and laws that apply:
+
 ## Decision
-- G1: build / change / don't — YYYY-MM-DD
+- G1: build / rework / drop — YYYY-MM-DD

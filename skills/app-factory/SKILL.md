@@ -16,9 +16,9 @@ Personal values (domain, bundle id prefix, Sentry org, repos) live in `app-facto
 - **App:** Expo (latest SDK), Expo Router, TypeScript strict, iOS + Android from one codebase, always a development build (never Expo Go workarounds).
 - **Backend:** Supabase (Postgres + RLS, Auth, Storage, Edge Functions). Auth = anonymous first, then Sign in with Apple, Google, email OTP via identity linking.
 - **Money:** RevenueCat. One entitlement `pro`; products monthly, annual, lifetime (consumables only if the spec needs them).
-- **Crashes:** Sentry (EU). **Analytics:** none.
+- **Crashes:** Sentry (EU). **Analytics:** no third-party analytics SDKs and no tracking; funnel events go to EAS Observe or an owner-only Supabase `events` table.
 - **Delivery:** GitHub + EAS Workflows (preview updates on branches, fingerprint build-or-update on `main`), EAS Submit, EAS Metadata.
-- **Web:** privacy / support / terms at `<webBaseUrl>/<slug>/`.
+- **Web:** landing page, privacy / support / terms and a delete-account page at `<webBaseUrl>/<slug>/`.
 - **Timebox:** 14 days to iOS submission; Android production after the 14-day closed test.
 
 If any borrowed skill proposes something else (SwiftUI, StoreKit directly, Firebase, GitHub Actions, Xcode Cloud, TelemetryDeck, a custom server), keep its *reasoning* and translate the *implementation* into the contract. Say so in one line when you do.
@@ -52,6 +52,7 @@ All output goes in the app repo, not the plugins' default folders:
 | --- | --- | --- |
 | `docs/STATUS.md` | every phase | Current phase, gate decisions, open questions, day count. **Read first, update last.** |
 | `docs/SPEC.md` | 1 Product | The single source of truth for what is built |
+| `docs/BRAND.md` | Brand | Name, keywords, brand kit, Figma board link |
 | `docs/UX.md` | 2 Design | Screens, flows, states, copy, tokens |
 | `docs/DATA.md` | 1, then every feature | What data is collected, by which service, why (feeds privacy labels) |
 | `docs/plans/<milestone>.md` | 3 Plan | Superpowers-format task plans |
@@ -67,7 +68,7 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 ## Routing
 
 1. Read `docs/STATUS.md`. If it doesn't exist, this is a new app: start at Phase 0.
-2. If the user named a phase or command, go there - but if an earlier gate is still open, say which and ask whether to proceed anyway.
+2. If the user named a phase or command, go there - but if an earlier gate or sign-off is still open, say which and ask whether to proceed anyway. The brand step (S1, S2) comes after G1 and before Phase 2 design.
 3. Otherwise continue the current phase.
 4. Load **only** that phase's reference file.
 
@@ -75,12 +76,13 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | --- | --- | --- |
 | `/app-factory new` | 0 Bootstrap | `references/phase-0-bootstrap.md` |
 | `/app-factory idea` | 1 Product | `references/phase-1-product.md` |
+| `/app-factory brand` | Brand & ASO (after G1) | `references/brand.md` |
 | `/app-factory design` | 2 Design | `references/phase-2-design.md` |
 | `/app-factory plan` | 3 Plan | `references/phase-3-plan.md` |
 | `/app-factory build [feature]` | 4 Build | `references/phase-4-build.md` |
 | `/app-factory review` | 5 Review | `references/phase-5-review.md` |
 | `/app-factory release` | 6 Release | `references/phase-6-release.md` |
-| `/app-factory status` | - | Summarise `docs/STATUS.md`: phase, day N of 14, next action, blockers |
+| `/app-factory status` | - | Summarise `docs/STATUS.md`: phase, day N of 14, next action, blockers. If there is no `docs/STATUS.md`, say there is no app in progress here and point to `/app-factory new` or the idea step; don't print a phase, day count or gate list |
 | `/app-factory fix` | any | superpowers:systematic-debugging, then Sentry MCP if it's a reported crash |
 | `/app-factory retro` | 7 Learn | `references/phase-7-improve.md` (retro section) |
 | `/app-factory improve` | 7 Learn | `references/phase-7-improve.md` (improve section) |
@@ -90,17 +92,20 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | Gate | Passes when |
 | --- | --- |
 | G1 Build it? | SPEC.md has one core loop, ≤ 5 screens, one paid tier, a kill reason that was checked, and the user says "build" |
+| S1 Name | A name is picked after App Store, Play and trademark checks |
+| S2 Direction | A brand direction is picked in Figma and the kit is in BRAND.md |
 | G2 Design approved | Every SPEC screen has a UX.md entry with all states, and the user approved the flows (on mockups or the wireframe text) |
 | G3 Plan approved | Each milestone plan has tasks of 2-15 minutes with a verification step each, and the user approved it |
 | G4 Feature done | Checks pass (`npm run check`), verified on the phone via the branch preview, PR open |
 | G5 Ship-ready | REVIEW.md has no open P0/P1, rejection checklist all ticked |
+| S3 Store set | Screenshots, preview video, listings in every store language and the feature graphic are approved in Figma |
 | G6 Submitted | iOS submitted; Android closed test running or in production |
 
-At each gate: write the decision with the date into `docs/STATUS.md`.
+At each gate and sign-off: write the decision with the date into `docs/STATUS.md`.
 
 ## Rules for every phase
 
-- Ask at most 3 questions at a time, multiple choice where possible. Recommend an answer.
+- Ask at most 3 questions at a time, multiple choice where possible. Recommend an answer. Every question counts, including setup issues you notice (missing template files, empty config keys): don't raise those up front; handle each in the step that needs it, or note it in STATUS.
 - Scope guard: anything not in SPEC.md goes to `LATER.md`. Adding to v1 requires the user to drop something of equal size.
 - Day budget: compare progress to the 14-day playbook in `references/phase-3-plan.md`. If a phase runs over, say so and propose a cut.
 - Evidence before claims (superpowers:verification-before-completion): never say "done" without the command output, the preview link, or the screenshot that shows it.

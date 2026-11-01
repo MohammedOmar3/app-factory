@@ -19,11 +19,11 @@ Run the product validation steps on the idea, adapted:
 | Apple-skills step | What to keep | Output into SPEC.md |
 | --- | --- | --- |
 | Problem discovery | Severity, frequency, who pays | §2 Problem, with a 1-5 severity score |
-| Competitive analysis (WebSearch) | 3-5 real competitors on App Store and Play: price, rating, what reviewers complain about | §4 Competitors, with links |
+| Competitive analysis (WebSearch) | 3-5 real competitors on App Store and Play: price, rating, ratings count, top-grossing rank in the category (US and UK), subscription or not, what reviewers complain about | §4 Competitors, with links; evidence for §10 |
 | MVP scoping | Core loop + must-haves only | §5 Scope |
 | Positioning | One sentence value prop, the differentiator | §3 Positioning |
 | Monetization | Free vs `pro` split, prices | §6 Monetization |
-| App naming | 3 candidates, checked for store collisions | §1 Name |
+| App naming | Working title only; the final name is picked at S1 in the brand step | §1 Working title |
 | Originality check (app-store) | Guideline 4.3 risk: is this a clone or template-ish? | §8 Risks |
 
 Skip market sizing (TAM/SAM/SOM); it doesn't change a 14-day decision.
@@ -38,16 +38,37 @@ Apply hard limits, then show the user what was cut:
 - No social features, chat, feeds, maps, AI features or admin panel unless they *are* the core loop.
 - Everything cut goes to `LATER.md` with one line each.
 
-### 4. Kill check
+### 4. Revenue analysis
 
-Write §9 Kill criteria: the 1-2 facts that would make this not worth building (e.g. "a free app already does X well", "needs data we can't get"). Check each with a search. Report honestly; recommend stopping if one is true.
+The goal of every app is revenue (£2k+/month within six months), so G1 needs evidence that money exists in this category. Fill SPEC §10:
 
-### 5. Data
+- **The bar:** at least 3 competitors in the top 200 grossing for the category (US or UK), and at least one of them a subscription app with 1,000+ ratings.
+- **Evidence table:** each competitor's grossing rank, ratings count, price model, and the source.
+- **The gap:** what this app can win that they don't do well (from §4 complaints and §3 positioning).
+- **Risks and confidence:** what could stop the revenue, and a confidence score 1-5.
+- **Recommendation:** build, rework (what to change) or drop.
+
+Sources: free ones first (App Store and Play top-grossing charts, competitor store pages, ratings counts). Use a paid market tool only if `app-factory.config.json` `marketData.tool` names one. **Never auto-kill:** the bar informs the user's decision; below the bar, say so plainly and explain what that means for the £2k goal.
+
+### 5. Legal screen
+
+Fill SPEC §11 before G1:
+
+- Is the category regulated or reviewed more strictly? (health and medical, finance, gambling, VPN, kids, dating, AI companions)
+- Likely audience age, and whether the app could attract children.
+- Territories to exclude (mainland China by default; others the category requires).
+- The store rules and laws that apply, each with the rule cited.
+
+### 6. Risk check
+
+Write §9 Risk check: the 1-2 facts that would make this hard to win (e.g. "a free app already does X well", "needs data we can't get"). Check each with a search. Report honestly; the result feeds the recommendation, it doesn't stop the idea on its own.
+
+### 7. Data
 
 Start `docs/DATA.md` from `templates/DATA.md`: every piece of user data v1 needs, which service holds it, and why.
 
 ## Gate G1
 
-Present: the one-sentence pitch, the core loop, screen list, price, top risk, kill-check result, and your recommendation (build / change / don't). The user decides. Record decision and date in STATUS.md.
+Present: the one-sentence pitch, the core loop, screen list, price, the §10 revenue analysis against the bar, the §11 legal screen, the top risk, and your recommendation (build / rework / drop). The user decides, including building below the bar. Record decision and date in STATUS.md.
 
 Output: `docs/SPEC.md` (from `templates/SPEC.md`), `docs/DATA.md`, `LATER.md`.

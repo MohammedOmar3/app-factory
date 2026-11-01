@@ -1,7 +1,7 @@
 # <App name> — UX
 
-## Direction
-- Chosen direction, reference app, why.
+## Brand
+- From docs/BRAND.md (S2 direction). Figma board:
 
 ## Tokens
 - Colors (semantic, light/dark), spacing, type scale, radius, motion. Source: src/theme/
@@ -25,6 +25,14 @@
 - Onboarding:
 - Paywall (moment, content):
 - Account:
+
+## Moments
+| Moment | Screen | Trigger | Copy |
+| --- | --- | --- | --- |
+| paywall-onboarding | | after the first value moment | |
+| paywall-feature | | tapping a `pro` feature | |
+| rating-prompt | | after a core-loop success, rate-limited | |
+| push-permission | | user wants a reminder or update | |
 
 ## Copy
 | Key | Text |
