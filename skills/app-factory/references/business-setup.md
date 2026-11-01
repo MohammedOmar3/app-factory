@@ -16,7 +16,7 @@ A checklist to verify with official sources; not tax or legal advice. Values com
 
 ## EU Digital Services Act trader status
 
-- [ ] Decide the address, phone and email Apple publishes on the EU App Store page (`business.euTraderContact`). A sole trader's personal details are published unless a business address is used. Decide before the first EU launch. Use a virtual business address, business email and business or virtual phone; use personal details only if Apple rejects the virtual address.
+- [ ] Decide the address, phone and email Apple publishes on the EU App Store page (`business.euTraderContact`). A sole trader's personal details are published unless a business address is used. Decide before the first EU launch. The same details go on the legal pages as the seller and privacy contact.
 
 ## Data processing agreements
 
