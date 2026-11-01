@@ -16,25 +16,30 @@ Goal: a renamed copy of the template with every service wired, running on the us
 
 ## Steps
 
-1. Write `docs/STATUS.md` from `templates/STATUS.md` (phase 0, day 1, today's date).
-2. Update `src/config/app.ts` and `app.config.ts` (name, slug, scheme, bundle id, Sentry project). Set `ios.supportsTablet: false`.
-3. `eas init`; write the projectId into `src/config/app.ts`.
+1. Write `docs/STATUS.md` from `templates/STATUS.md` (phase 0, day 1, today's date) and `docs/DATA.md` from `templates/DATA.md` (app name filled in). Delete `docs/TEMPLATE-SETUP.md` if it came with the template.
+2. Update `src/config/identity.json` (name, slug, scheme, bundle id, Sentry project, EAS owner). `app.config.ts` and `src/config/app.ts` read it; don't edit them for identity. Rename "Factory Test" in `supabase/templates/*.html`.
+3. `eas init`; write the projectId into `identity.json` (`easProjectId`).
 4. **Sentry MCP:** create project `<slug>` (React Native) in the EU org; record the DSN.
-5. **Supabase MCP:** ask which project to use (never create a paid project without approval). Apply `supabase/migrations/0000_baseline.sql` (profiles, entitlements, RLS). Deploy `revenuecat-webhook` and `delete-account`. Regenerate `src/types/database.ts`. Run the security advisor; fix findings.
-6. **RevenueCat MCP:** create the project's app entries, entitlement `pro`, offering `default`. Products wait until store app records exist (step 9).
-7. `eas env:create` for development, preview, production: Supabase URL and publishable key, RevenueCat public keys (once available), Sentry DSN, Google client ids; `SENTRY_AUTH_TOKEN` as a secret.
+5. **Supabase MCP:** ask which project to use (never create a paid project without approval; the free tier allows 2 active projects). Apply every file in `supabase/migrations/` in order. Deploy `delete-account`, and `revenuecat-webhook` with `--no-verify-jwt` (RevenueCat authenticates with a shared secret, not a JWT). Regenerate `src/types/database.ts`. Run the security advisor; fix findings.
+6. **RevenueCat MCP:** create the project's app entries, entitlement `pro`, offering `default`. Products wait until store app records and both App Store keys exist (manual checklist). When creating them with store-state plans, set `common.availability.territories` on every product, subscriptions included, or planning returns a blocker.
+7. `eas env:set` for development, preview and production (plaintext): `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID`, `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID`, `EXPO_PUBLIC_SENTRY_DSN`, `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY` (public `appl_` key from `list-app-public-api-keys`). The user sets `SENTRY_AUTH_TOKEN` (sensitive) and the two Supabase secrets in the checklist themselves; secrets never pass through chat. Run eas-cli commands one at a time: parallel `npx eas-cli@latest` runs corrupt the npx cache.
 8. Legal pages: generate privacy, support and terms for `<webBaseUrl>/<slug>/` using `apple-skills` legal/privacy-policy *knowledge*, filled from `docs/DATA.md` and the contract's services. Write them into the website repo (ask for its path) or into `docs/legal/` if it isn't available. These are drafts: tell the user to read them.
 9. Print the manual checklist (below) into STATUS.md and to the user.
-10. Run the `dev-build.yml` workflow; when it finishes, give the install link.
+10. Development build: the **first** iOS build must run interactively on the user's PC (`npx eas-cli build --profile development --platform ios --no-wait`), because creating the ad hoc profile needs an Apple login; `--non-interactive` fails with "couldn't find any credentials suitable for internal distribution". Later builds, including the `development.yml` workflow, reuse the profile until a new device is added. When it finishes, give the install link (open the build page on the iPhone; Expo Orbit can't install on iPhones from Windows).
 
 ## Manual checklist (user)
 
 - [ ] App Store Connect app record (bundle id `<bundleIdPrefix>.<slug>`); put its Apple ID in `eas.json` `ascAppId`
+- [ ] `eas credentials` (iOS): distribution certificate, provisioning profile, App Store Connect API key
+- [ ] RevenueCat app: upload the In-App Purchase key (`SubscriptionKey_….p8`) and the App Store Connect API key (`AuthKey_….p8`, App Manager or higher), same Issuer ID; Paid Apps agreement active
 - [ ] Play Console app record
 - [ ] Google OAuth clients: iOS, Android (SHA-1 from `eas credentials`), web; add to Supabase Google provider
-- [ ] Supabase: Apple provider client id = bundle id
-- [ ] RevenueCat: webhook URL → `revenuecat-webhook` with the Authorization secret
-- [ ] Install the development build on the iPhone
+- [ ] Supabase Apple provider: enabled, bundle id in **Client IDs** (otherwise "Unacceptable audience in id_token"); no secret needed for native sign-in
+- [ ] Supabase custom SMTP (Resend: `smtp.resend.com`, port 465, user `resend`, one API key per app, sender `noreply@<webBaseUrl domain>`), then paste `supabase/templates/*.html` into the dashboard templates. Without custom SMTP the templates can't be edited and the default ones send links, not codes.
+- [ ] Supabase secrets: `REVENUECAT_WEBHOOK_AUTH` (random, generated in the user's terminal) and `REVENUECAT_SECRET_API_KEY` (RevenueCat v1 secret key, so account deletion also deletes the RevenueCat customer)
+- [ ] RevenueCat webhook → `https://<ref>.supabase.co/functions/v1/revenuecat-webhook`, Authorization = the same `REVENUECAT_WEBHOOK_AUTH`, production + sandbox; send a test event and check `revenuecat_events`
+- [ ] Connect the GitHub repo to the app's EAS project (expo.dev → Project settings → GitHub); push-triggered workflows don't run without it
+- [ ] Register the iPhone (`npx eas-cli device:create` in the user's terminal), install the development build, turn on Developer Mode (the toggle only appears in Settings → Privacy & Security after first opening the app)
 
 ## Exit
 

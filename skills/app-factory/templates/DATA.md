@@ -6,6 +6,7 @@ Feeds the privacy policy, App Store privacy labels and Play Data safety. Update 
 | --- | --- | --- | --- | --- | --- | --- |
 | User ID | uuid | Supabase Auth | Supabase | Yes | App functionality | No |
 | Email | a@b.com | Supabase Auth (email/Apple/Google sign-in) | Supabase | Yes | Account | Yes |
+| Name | Jane Appleseed | Sign in with Apple (first sign-in only) | Supabase `profiles.display_name` | Yes | Account | Yes |
 | Purchase history | pro_annual | RevenueCat | RevenueCat, Supabase entitlements | Yes | App functionality | No |
 | Crash data, diagnostics | stack trace, device model | Sentry | Sentry (EU) | Yes (user id) | App functionality | No |
 
