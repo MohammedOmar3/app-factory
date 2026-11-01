@@ -4,6 +4,10 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 ## Unreleased
 
+- Phase 0 matches the finished template (lessons from building expo-app-factory with Factory Test, 2026-10-27 to 11-01): identity lives in `src/config/identity.json`; all migrations, not only `0000`; webhook deployed with `--no-verify-jwt`; workflow is `development.yml` and the first iOS dev build runs interactively; env var names listed; `docs/DATA.md` is written in step 1 because step 8 reads it.
+- Phase 0 manual checklist adds what the template needed in practice: both App Store keys for RevenueCat, Supabase Apple Client ID = bundle id, custom SMTP + code-only templates, `REVENUECAT_WEBHOOK_AUTH` and `REVENUECAT_SECRET_API_KEY`, GitHub connected to EAS, device registration and Developer Mode.
+- `templates/DATA.md`: Apple display name row.
+
 ## 0.1.0 - 2026-10-27
 
 First release.
