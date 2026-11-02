@@ -10,7 +10,7 @@ Claude proposes; the user picks and signs off. The user never designs by hand. V
 | --- | --- |
 | Keyword research, store copy knowledge | apple-skills app-store (keyword-optimizer, knowledge only) + WebSearch |
 | Brand board, logo/wordmark, icon and screen mockups | Figma MCP (`figma@claude-plugins-official`, remote server, writes to the canvas) |
-| Images (icon artwork, illustrations, paywall hero, onboarding art) | The image-generation MCP listed in `references/setup.md`; if none is installed yet, stop at the image steps and tell the user |
+| Images (icon artwork, illustrations, paywall hero, onboarding art) | The `nanobanana` image-generation MCP (install line in `references/setup.md`, needs `GEMINI_API_KEY`); if it is not connected, stop at the image steps and tell the user |
 | What to avoid | `vendor/mobile-taste/skills/_shared/references/tells.md` (AI-slop tells apply to brands too) |
 
 ## Steps
