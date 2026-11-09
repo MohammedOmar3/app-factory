@@ -11,7 +11,7 @@ A checklist to verify with official sources; not tax or legal advice. Values com
 
 ## Tax and registrations
 
-- [ ] Registrations required where `business.residence` is (for example in the UAE, corporate-tax registration duties and thresholds as turnover grows; confirm on the official tax authority's site)
+- [ ] Registrations required where `business.residence` is (for example in the UK, sole-trader registration and self-assessment with HMRC, VAT thresholds as turnover grows, and the ICO data protection fee; confirm each on the official government site)
 - [ ] Records of store and RevenueCat payouts kept per month
 
 ## EU Digital Services Act trader status
