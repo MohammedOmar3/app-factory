@@ -31,13 +31,19 @@ npx skills add callstackincubator/agent-skills --skill react-native-best-practic
 
 Install just that skill, not Callstack's `building-react-native-apps` plugin: the plugin also brings react-navigation and upgrade skills that compete with Expo Router and expo-upgrade.
 
-For the Brand & ASO step and store assets (`references/brand.md`):
+For the Brand & ASO step and store assets (`references/brand.md`, `references/phase-6-release.md`), nothing is required beyond Claude Code itself:
 
-```sh
-claude plugin install figma@claude-plugins-official      # official Figma MCP (remote server; writes to the canvas)
-```
+- **Review board:** a Claude Design artifact (the `Artifact` tool). Private by default; the user shares it from the page's Share menu.
+- **SVG to PNG:** `npx -y @resvg/resvg-js-cli in.svg out.png` (tested). Claude Code asks for approval of the first `npx` run.
+- **HTML to PNG** (screenshot frames, 1024×500 Play feature graphic): headless Edge, preinstalled on Windows 11 (tested at 1024×500): `"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --disable-gpu --hide-scrollbars --window-size=W,H --screenshot=out.png file:///path/to/frame.html`. Headless Chrome takes the same flags.
 
-Figma needs a Professional plan seat that includes the MCP server (check Figma's pricing page). Image generation needs one MCP server for Google's Gemini image models; until it's chosen and its install line is added here, `references/brand.md` step 4 stops at the image steps and tells the user.
+Optional upgrades (not required, not verified as part of this skill):
+
+- **Figma:** `claude plugin install figma@claude-plugins-official` (official remote MCP; writes to the canvas). It needs a Professional plan Full or Dev seat; the free Starter plan allows 20 calls a month. Check Figma's pricing page before buying.
+- **Image generation for raster art.** Two routes seen to fail without paid access, so do not rely on them:
+  - Gemini API (for example `nanobanana-mcp-server`): a key from a project without billing returns `429 RESOURCE_EXHAUSTED ... limit: 0`. Link billing first.
+  - OpenRouter (`openrouter-banana-mcp`): needs credits (`402` without them), exposes only a `prompt` parameter (no reference image), and crashes on `mcp` 2.x unless pinned with `--with 'mcp<2'`.
+  - If you register an MCP whose key is in a user environment variable: Claude Code expands `${VAR}` from its own process environment, so a variable set with `setx` after launch is not seen. Either start Claude Code from a new terminal, or launch the server through a wrapper that reads the user-scope variable, for example `claude mcp add <name> --scope user -- powershell -NoProfile -Command '$env:KEY=[Environment]::GetEnvironmentVariable("KEY","User"); uvx ...'`. Never paste a key into a session.
 
 Nothing to install for Vercel's React Native rules or Draftbit's design review: they ship inside this skill under `vendor/`. Supabase's postgres best-practices skill comes with the supabase plugin.
 
@@ -51,7 +57,7 @@ Ask Claude to confirm each of these is available and report any missing:
 
 - Skills: `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:executing-plans`, `superpowers:verification-before-completion`, `expo-overview`, `eas-workflows`, `apple-skills:product`, `apple-skills:app-store`, `supabase-postgres-best-practices`
 - Files: `vendor/react-native-skills/INDEX.md`, `vendor/mobile-taste/skills/mobile-design-review/REVIEW.md`
-- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I"); figma (creates a frame in a test file); the image-generation server once installed (returns one image)
+- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I"); the `Artifact` tool publishes a private page; `npx -y @resvg/resvg-js-cli` exports a test SVG to PNG; headless Edge exports a test HTML file to PNG. Only if installed: figma (creates a frame in a test file); an image-generation server (returns one image)
 - CLIs: `eas whoami`, `gh auth status`
 
 ## Project settings (commit to the template)

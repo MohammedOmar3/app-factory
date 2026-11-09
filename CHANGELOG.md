@@ -4,6 +4,8 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 ## Unreleased
 
+- Brand and store assets no longer need Figma or an image-generation API: review board is a Claude Design artifact, assets are SVG/HTML exported to PNG (resvg, headless Edge). Figma and image MCPs are optional. Setup lists known failure modes of the Gemini and OpenRouter image routes. Spec: waymark docs/app-factory/2026-11-09-design-artifact-svg-brand-pipeline.md (D-0004 revisit condition met).
+
 - In-app purchases only (D-0005): web sales dropped in the process. Seller and DSA contact use a virtual business address, business email and phone; personal details only if Apple rejects the virtual address.
 
 ## 0.2.0 - 2026-11-01
