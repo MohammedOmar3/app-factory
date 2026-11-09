@@ -20,7 +20,7 @@ Goal: every screen, flow, state and string decided before feature code, and appr
 ## Steps
 
 1. **Brand.** Read `docs/BRAND.md`. The direction was chosen at S2 in the brand step (`references/brand.md`); don't propose new directions. If S2 isn't signed off, stop and ask whether to finish the brand step first. Keep `tells.md` in mind while designing screens.
-2. **Tokens.** With expo-design-system, write the brand kit's tokens into `src/theme/` (semantic colors for light/dark, spacing scale, type scale that respects Dynamic Type / font scale, radius, motion durations). `src/theme/` is the source of truth; mirror changes back to the Figma variables. Record them in UX.md §Tokens.
+2. **Tokens.** With expo-design-system, write the brand kit's tokens into `src/theme/` (semantic colors for light/dark, spacing scale, type scale that respects Dynamic Type / font scale, radius, motion durations). `src/theme/` is the source of truth; if a Figma board is used, mirror changes back to its variables. Record them in UX.md §Tokens.
 3. **Navigation map.** Routes in `app/`: which are tabs, stacks, modals, sheets. Keep template routes (onboarding, paywall, settings/account).
 4. **Screen specs.** For each SPEC screen, in UX.md: purpose, primary action, layout sketch (ASCII wireframe), components, and **all states**: loading, empty, error, offline, anonymous vs signed-in, free vs `pro`.
 5. **Template flows, tailored** (start from the matching mobile-taste block, translated to StyleSheet + tokens):

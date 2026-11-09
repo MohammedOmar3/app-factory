@@ -21,12 +21,12 @@
 - Image and background colors:
 
 ## Image style
-- Reference images in `assets/brand/style/`; provider and commercial-use terms:
+- SVG style rules (shapes, stroke, palette, radius); SVG sources in `assets/brand/src/`. If an image provider is used: reference images in `assets/brand/style/`, provider and commercial-use terms:
 
 ## In-app imagery
 | Asset | Screen | File |
 | --- | --- | --- |
 
-## Figma
-- Board link:
-- Image spend so far:
+## Review board
+- Artifact (or Figma) link:
+- Image spend so far (only if an image provider is used):

@@ -31,21 +31,19 @@ npx skills add callstackincubator/agent-skills --skill react-native-best-practic
 
 Install just that skill, not Callstack's `building-react-native-apps` plugin: the plugin also brings react-navigation and upgrade skills that compete with Expo Router and expo-upgrade.
 
-For the Brand & ASO step and store assets (`references/brand.md`):
+For the Brand & ASO step and store assets (`references/brand.md`, `references/phase-6-release.md`), nothing is required beyond Claude Code itself:
 
-```sh
-claude plugin install figma@claude-plugins-official      # official Figma MCP (remote server; writes to the canvas)
-```
+- **Review board:** a Claude Design artifact (the `Artifact` tool). Private by default; the user shares it from the page's Share menu.
+- **SVG to PNG:** `npx -y @resvg/resvg-js-cli in.svg out.png` (tested). Claude Code asks for approval of the first `npx` run.
+- **HTML to PNG** (screenshot frames, 1024×500 Play feature graphic): headless Edge, preinstalled on Windows 11 (tested at 1024×500): `"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --disable-gpu --hide-scrollbars --window-size=W,H --screenshot=out.png file:///path/to/frame.html`. Headless Chrome takes the same flags.
 
-Figma needs a Professional plan Full or Dev seat (the MCP server is not available on the free Starter plan beyond 20 calls a month); check Figma's pricing page before buying.
+Optional upgrades (not required, not verified as part of this skill):
 
-Image generation uses the community `nanobanana-mcp-server` (github.com/zhongweili/nanobanana-mcp-server, MIT) for Google's Gemini image models. Create a Gemini API key in Google AI Studio on a billing-enabled project with a budget alert, then set it yourself in your own terminal (never paste it into a session): PowerShell `setx GEMINI_API_KEY "<your key>"`, restart the terminal. Then:
-
-```sh
-claude mcp add nanobanana --scope user --env 'GEMINI_API_KEY=${GEMINI_API_KEY}' -- uvx nanobanana-mcp-server@latest
-```
-
-The single quotes keep `${GEMINI_API_KEY}` literal so the key is read from your environment at launch, not stored. It needs `uv` installed (`uvx`). Images are saved to `~/nanobanana-images` (override with `IMAGE_OUTPUT_DIR`). Check how it takes reference images (`edit_image`, `upload_file`) against the repo README before relying on style references; the runner-up is `@mindstone/mcp-server-nano-banana` (`npx -y`).
+- **Figma:** `claude plugin install figma@claude-plugins-official` (official remote MCP; writes to the canvas). It needs a Professional plan Full or Dev seat; the free Starter plan allows 20 calls a month. Check Figma's pricing page before buying.
+- **Image generation for raster art.** Two routes seen to fail without paid access, so do not rely on them:
+  - Gemini API (for example `nanobanana-mcp-server`): a key from a project without billing returns `429 RESOURCE_EXHAUSTED ... limit: 0`. Link billing first.
+  - OpenRouter (`openrouter-banana-mcp`): needs credits (`402` without them), exposes only a `prompt` parameter (no reference image), and crashes on `mcp` 2.x unless pinned with `--with 'mcp<2'`.
+  - If you register an MCP whose key is in a user environment variable: Claude Code expands `${VAR}` from its own process environment, so a variable set with `setx` after launch is not seen. Either start Claude Code from a new terminal, or launch the server through a wrapper that reads the user-scope variable, for example `claude mcp add <name> --scope user -- powershell -NoProfile -Command '$env:KEY=[Environment]::GetEnvironmentVariable("KEY","User"); uvx ...'`. Never paste a key into a session.
 
 Nothing to install for Vercel's React Native rules or Draftbit's design review: they ship inside this skill under `vendor/`. Supabase's postgres best-practices skill comes with the supabase plugin.
 
@@ -59,7 +57,7 @@ Ask Claude to confirm each of these is available and report any missing:
 
 - Skills: `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:executing-plans`, `superpowers:verification-before-completion`, `expo-overview`, `eas-workflows`, `apple-skills:product`, `apple-skills:app-store`, `supabase-postgres-best-practices`
 - Files: `vendor/react-native-skills/INDEX.md`, `vendor/mobile-taste/skills/mobile-design-review/REVIEW.md`
-- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I"); figma (creates a frame in a test file); the image-generation server once installed (returns one image)
+- MCP servers: expo, supabase, revenuecat, sentry (each answers a trivial read, e.g. "who am I"); the `Artifact` tool publishes a private page; `npx -y @resvg/resvg-js-cli` exports a test SVG to PNG; headless Edge exports a test HTML file to PNG. Only if installed: figma (creates a frame in a test file); an image-generation server (returns one image)
 - CLIs: `eas whoami`, `gh auth status`
 
 ## Project settings (commit to the template)

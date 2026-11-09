@@ -38,7 +38,7 @@
 ### Full description (4000)
 
 ## Assets
-| Asset | Spec | Figma frame | Approved (S3) |
+| Asset | Spec | Frame (HTML/SVG or Figma) | Approved (S3) |
 | --- | --- | --- | --- |
 | Screenshots, per locale | 6.9" iPhone, 5-8 frames | | |
 | App preview video | 15-30 s, 6.9" | | |

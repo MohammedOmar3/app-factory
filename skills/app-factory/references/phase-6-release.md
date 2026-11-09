@@ -10,7 +10,7 @@ Goal: iOS submitted for review; Android in closed testing (started day 5) and pr
 | App Store listing as code | EAS Metadata (`store.config.json`, `eas metadata:push`) |
 | Keywords (100 chars), subtitle, description | apple-skills app-store: keyword-optimizer, app-description-writer |
 | Screenshot sequence and captions | apple-skills app-store: screenshot-planner (plan only; user captures on the 6.9" iPhone) |
-| Screenshot frames, feature graphic, preview video captions | Figma MCP, using the brand kit (`docs/BRAND.md`) |
+| Screenshot frames, feature graphic, preview video captions | HTML/SVG frames in the app repo (`assets/store/`), exported to PNG with headless Edge (`references/setup.md`), using the brand kit (`docs/BRAND.md`); Figma MCP if connected |
 | Landing page and legal pages | app-sites repo (`github.appSitesRepo`) |
 | Privacy policy accuracy | apple-skills legal/privacy-policy (check the Phase 0 pages against DATA.md) |
 | IAP review info | RevenueCat MCP (store product state) + user in App Store Connect |
@@ -22,12 +22,12 @@ Don't use apple-skills `screenshot-automation`, `iap-finalizer` or `privacy-publ
 ## Steps
 
 1. **Copy, every store language.** Write `docs/RELEASE.md` from `templates/RELEASE.md` in English first: name (30), subtitle (30), promo text (170), description, keywords (100, comma-separated, no spaces, no words already in name/subtitle, no competitor names or trademarks), What's New, review notes, support URL, privacy URL. Play: short description (80), full description (4000). Use the keywords from `docs/BRAND.md`. Then translate into every store language: **en, de, fr, es, ja, pt-BR, ar**, and fill Apple's extra keyword locales per storefront (WebFetch Apple's current list of localizations each storefront indexes; don't rely on memory). A second AI pass reviews each translation for meaning and tone. **Check every field against its limit in every locale** (name 30, subtitle 30, keywords 100, promo 170, Play short 80) before any metadata push; a field over its limit is rewritten, never truncated.
-2. **Screenshots.** Shot list of 5-8 frames: core-loop value first, paywall never first. The user captures on the iPhone 17 Pro Max (6.9") from the preview build. Frame them with captions in the Figma screenshot template, one set per store language (captions translated). Export at Apple's 6.9" size.
+2. **Screenshots.** Shot list of 5-8 frames: core-loop value first, paywall never first. The user captures on the iPhone 17 Pro Max (6.9") from the preview build. Frame them with captions in an HTML screenshot template (`assets/store/`; Figma template if connected), one set per store language (captions translated). Export at Apple's 6.9" size with headless Edge, and check one exported frame at full size before producing the set.
 3. **App preview video.** 15-30 seconds of the core loop from the user's screen recordings, cut to Apple's 6.9" preview size with captions in the brand style.
-4. **Other assets.** Play feature graphic 1024×500 from the Figma template; IAP review screenshots of the real paywall; icon variants confirmed in the build.
+4. **Other assets.** Play feature graphic 1024×500 from an HTML/SVG template (Figma template if connected); IAP review screenshots of the real paywall; icon variants confirmed in the build.
 5. **Privacy answers.** From DATA.md produce: App Store privacy label answers (data types, linked to user, tracking = no) and Play Data safety answers. The user enters them in the consoles.
 6. **Web.** Deploy the landing page and legal pages to the app-sites repo for `<webBaseUrl>/<slug>/`; confirm privacy, support, terms and delete-account URLs load.
-7. **S3: store set sign-off.** The user approves screenshots, preview video, listings in every language and the feature graphic in Figma. Record in STATUS.
+7. **S3: store set sign-off.** The user approves screenshots, preview video, listings in every language and the feature graphic, reviewed on a private artifact page (or Figma). Record in STATUS.
 8. **Metadata.** Generate `store.config.json` from RELEASE.md (all locales). After a build has been processed in App Store Connect: `eas metadata:push`. Fix any validation warnings.
 9. **Availability.** All territories except those excluded in SPEC §11 (mainland China by default).
 10. **Version.** Confirm version (1.0.0) in app config; build numbers auto-increment remotely.
