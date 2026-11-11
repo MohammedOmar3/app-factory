@@ -39,6 +39,9 @@ For the Brand & ASO step and store assets (`references/brand.md`, `references/ph
 
 Optional upgrades (not required, not verified as part of this skill):
 
+- **Lazyweb** (design research: real screens, flows and experiments from shipped apps). Follow the setup page Lazyweb gives you. For Claude Code: save the token to `~/.lazyweb/lazyweb_mcp_token`, then `claude mcp add --transport http --scope user lazyweb https://www.lazyweb.com/mcp --header "Authorization: Bearer <token>"`. Its `install.sh` clones a repo and runs that repo's `setup`; read both before running it, or copy the skills from `skills/` in `github.com/aboul3ata/lazyweb-skill` into `~/.claude/skills/` by hand. Free accounts get partial reports.
+- **ui-ux-pro-max** (UX rules and checklists, local Python, no network): copy `.claude/skills/ui-ux-pro-max/` from `github.com/nextlevelbuilder/ui-ux-pro-max-skill` into `~/.claude/skills/`. Use it for rules only; its `--design-system` output is a generic default (tested: teal, Plus Jakarta Sans, a landing-page pattern for a mobile planner).
+
 - **Figma:** `claude plugin install figma@claude-plugins-official` (official remote MCP; writes to the canvas). It needs a Professional plan Full or Dev seat; the free Starter plan allows 20 calls a month. Check Figma's pricing page before buying.
 - **Image generation for raster art.** Two routes seen to fail without paid access, so do not rely on them:
   - Gemini API (for example `nanobanana-mcp-server`): a key from a project without billing returns `429 RESOURCE_EXHAUSTED ... limit: 0`. Link billing first.

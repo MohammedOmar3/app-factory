@@ -4,6 +4,8 @@ All notable changes. Versions follow semver: patch for wording and rule tweaks, 
 
 ## Unreleased
 
+- Design workflow: the brand step now runs research (user references plus a competitor teardown in BRAND.md §Research), then 2-3 experience concepts the user picks from (§Concept), then moodboard directions (S2). Phase 2 adds a clickable HTML prototype artifact before the React Native phone prototype, which becomes a port. A design rejected as generic sends the skill back to research instead of another variation. Lazyweb and ui-ux-pro-max listed as optional tools (ui-ux-pro-max for rules only). New eval `generic-design-goes-to-research`. From Mavli: two directions rejected as generic before references and a concept unlocked the design.
+
 - Brand and store assets no longer need Figma or an image-generation API: review board is a Claude Design artifact, assets are SVG/HTML exported to PNG (resvg, headless Edge). Figma and image MCPs are optional. Setup lists known failure modes of the Gemini and OpenRouter image routes. Spec: waymark docs/app-factory/2026-11-09-design-artifact-svg-brand-pipeline.md (D-0004 revisit condition met).
 
 - In-app purchases only (D-0005): web sales dropped in the process. Seller and DSA contact use a virtual business address, business email and phone; personal details only if Apple rejects the virtual address.
