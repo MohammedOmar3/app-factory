@@ -4,6 +4,7 @@ Cross-app log. One line per lesson that changed the factory, newest first. Per-a
 
 | Date | App | Lesson | Change | PR |
 | --- | --- | --- | --- | --- |
+| 2026-11-12 | Mavli | Brand directions were palettes and fonts with no research or experience concept behind them; the prototype and a redo were both rejected as generic. User references, a Tiimo teardown and a picked concept (Flow windows) unlocked it | Brand step: research, concepts, then moodboards (S2). Phase 2: HTML prototype before the phone prototype. Eval `generic-design-goes-to-research` | (this PR) |
 | 2026-11-01 | (design review, D-0004) | Brand, store assets, revenue proof and compliance were missing or one vague line, so apps could ship without a way to be found or to earn | G1 revenue analysis, Brand & ASO step with S1-S3, compliance thread, store assets in Phase 6 | #3 |
 | 2026-11-01 | Factory Test (template) | Native Apple sign-in failed: "Unacceptable audience in id_token" | Phase 0 checklist: bundle id in Supabase Apple Client IDs | #2 |
 | 2026-11-01 | Factory Test (template) | Email sign-in sent links, not codes; templates can't be edited without custom SMTP | Phase 0 checklist: Resend SMTP + `supabase/templates/` | #2 |

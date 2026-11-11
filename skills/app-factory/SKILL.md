@@ -93,7 +93,7 @@ When superpowers or apple-skills want to write elsewhere (`docs/superpowers/spec
 | --- | --- |
 | G1 Build it? | SPEC.md has one core loop, ≤ 5 screens, one paid tier, a kill reason that was checked, and the user says "build" |
 | S1 Name | A name is picked after App Store, Play and trademark checks |
-| S2 Direction | A brand direction is picked on the review board (artifact or Figma) and the kit is in BRAND.md |
+| S2 Direction | After research (BRAND.md §Research), an experience concept is picked, then a moodboard direction on the review board (artifact or Figma), and the kit is in BRAND.md |
 | G2 Design approved | Every SPEC screen has a UX.md entry with all states, and the user approved the flows (on mockups or the wireframe text) |
 | G3 Plan approved | Each milestone plan has tasks of 2-15 minutes with a verification step each, and the user approved it |
 | G4 Feature done | Checks pass (`npm run check`), verified on the phone via the branch preview, PR open |

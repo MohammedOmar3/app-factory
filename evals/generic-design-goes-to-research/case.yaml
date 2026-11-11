@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: generic-design-goes-to-research
+description: When the user rejects a design as generic, the skill goes back to references, teardown and experience concepts instead of producing another visual variation.
+tags: [core, brand, design]
+context:
+  scaffold_script: setup.sh

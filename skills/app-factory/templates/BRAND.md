@@ -8,6 +8,16 @@
 | Term | Priority | Source | Locale |
 | --- | --- | --- | --- |
 
+## Research
+
+- User's references (app or image, what they like, what they don't):
+- Competitor teardown (app: what works / what doesn't make sense / what the user should never have to do):
+
+## Concept
+
+- Options shown (one sentence each, the interaction that makes it different):
+- Chosen (YYYY-MM-DD) and why:
+
 ## Direction
 - Chosen (S2, YYYY-MM-DD) and why:
 
