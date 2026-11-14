@@ -32,7 +32,9 @@
   "penpot": {
     "baseUrl": "",
     "mcpServer": "penpot",
-    "templateFileUrl": ""
+    "templateFileUrl": "",
+    "kitCatalogPath": "",
+    "libraries": []
   },
   "marketData": {
     "tool": ""
