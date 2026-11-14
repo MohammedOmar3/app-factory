@@ -19,6 +19,7 @@ Goal: every screen, flow, state and string decided before feature code, and appr
 | Fast flow prototype | Artifact page (HTML) in a phone frame, one file built from small sources |
 | Pattern evidence for a screen or flow | Lazyweb (`lazyweb-search-flows`, `lazyweb-search-screens`), optional |
 | Design review | `vendor/mobile-taste/skills/mobile-design-review/REVIEW.md` with its rubric (overrides in SKILL.md) |
+| Screens in Penpot (only when `penpot.templateFileUrl` is set and the Penpot MCP answers) | The iOS kit libraries listed in `penpot.libraries`, read through the catalog at `penpot.kitCatalogPath`; see §Penpot kit below |
 
 ## Steps
 
@@ -35,6 +36,16 @@ Goal: every screen, flow, state and string decided before feature code, and appr
 6. **Copy.** Every user-facing string in UX.md §Copy, written with ux-writing guidance: verbs on buttons, errors that say what to do next, no "Oops". Strings go into the template's i18n files (English first; other app languages per SPEC). Layouts are RTL-safe: use start/end, never left/right, so Arabic works when enabled.
 7. **HTML prototype.** Build the chosen concept as a clickable HTML prototype in a phone frame and publish it as a private artifact. Fake data, but real behaviour: the core loop works end to end, every state from step 4 is reachable, and a demo panel moves time or fakes events (for example "+15 minutes", "jump to 13:00", "end the day") so the user can see states that need waiting. Iterate here: changes take minutes, not builds. Review with the user until the flows are right, then run the design review below on it. Screenshot every screen with headless Edge (`references/setup.md`) and look at each before saying it's done.
 8. **Phone prototype.** Port the approved HTML prototype to React Native on a branch `design/prototype`: static mock data, real navigation, StyleSheet + tokens (no Supabase, no purchases). Port it; don't redesign while porting. Push; the preview update lets the user tap through on the iPhone.
+
+## Penpot kit (only when Penpot is configured)
+
+Skip this section when `penpot.templateFileUrl` is empty or the Penpot MCP does not answer; the HTML prototype carries the design. When Penpot is used for screens:
+
+1. **References page first.** The app's Penpot file starts with a page named `References` that holds the user's screenshots and notes, plus the BRAND.md §Research teardown. Read it and cite what each screen takes from it before drafting anything. If the page is missing or empty, ask the user for references; don't draft.
+2. **Read the catalog.** Read the file at `penpot.kitCatalogPath` and the `HOW-TO-COMPOSE.md` next to it before placing anything. Connect the libraries named in `penpot.libraries`.
+3. **Wireframe the flow first** with the Flows & Wireframes libraries, one board per step of the core loop. The user approves the flow before any high-fidelity screen.
+4. **Compose only from the kit.** Every control is an instance of a catalog component, and every color, type style, radius and spacing is a token. Never draw a native control (tab bar, navigation bar, list row, switch, sheet, button) from rectangles and text. Each component's catalog row names its Expo native control; use that in the code.
+5. **Gaps are reported, not invented.** If a screen needs something the catalog lacks, add it to the catalog's Gaps section and tell the user, with the workaround the catalog gives.
 
 ## Design review (run before G2, write findings into UX.md §Review)
 
