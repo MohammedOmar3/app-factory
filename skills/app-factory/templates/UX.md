@@ -1,7 +1,7 @@
 # <App name> — UX
 
 ## Brand
-- From docs/BRAND.md (S2 direction). Review board (artifact or Figma):
+- From docs/BRAND.md (S2 direction). Review board (artifact, Figma or Penpot):
 
 ## Tokens
 - Colors (semantic, light/dark), spacing, type scale, radius, motion. Source: src/theme/

@@ -38,5 +38,5 @@
 | --- | --- | --- |
 
 ## Review board
-- Artifact (or Figma) link:
+- Artifact (or Figma / Penpot) link:
 - Image spend so far (only if an image provider is used):

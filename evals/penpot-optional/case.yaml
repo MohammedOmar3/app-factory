@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: penpot-optional
+description: With the penpot config block empty and no Penpot MCP connected, the brand step still uses the Artifact board and does not tell the user to install Penpot.
+tags: [core, brand, tools]
+context:
+  scaffold_script: setup.sh

@@ -27,7 +27,7 @@ Don't use apple-skills `screenshot-automation`, `iap-finalizer` or `privacy-publ
 4. **Other assets.** Play feature graphic 1024×500 from an HTML/SVG template (Figma template if connected); IAP review screenshots of the real paywall; icon variants confirmed in the build.
 5. **Privacy answers.** From DATA.md produce: App Store privacy label answers (data types, linked to user, tracking = no) and Play Data safety answers. The user enters them in the consoles.
 6. **Web.** Deploy the landing page and legal pages to the app-sites repo for `<webBaseUrl>/<slug>/`; confirm privacy, support, terms and delete-account URLs load.
-7. **S3: store set sign-off.** The user approves screenshots, preview video, listings in every language and the feature graphic, reviewed on a private artifact page (or Figma). Record in STATUS.
+7. **S3: store set sign-off.** The user approves screenshots, preview video, listings in every language and the feature graphic, reviewed on a private artifact page (or Figma or Penpot). Record in STATUS.
 8. **Metadata.** Generate `store.config.json` from RELEASE.md (all locales). After a build has been processed in App Store Connect: `eas metadata:push`. Fix any validation warnings.
 9. **Availability.** All territories except those excluded in SPEC §11 (mainland China by default).
 10. **Version.** Confirm version (1.0.0) in app config; build numbers auto-increment remotely.
