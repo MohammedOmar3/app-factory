@@ -29,6 +29,11 @@
   "figma": {
     "templateFileUrl": ""
   },
+  "penpot": {
+    "baseUrl": "",
+    "mcpServer": "penpot",
+    "templateFileUrl": ""
+  },
   "marketData": {
     "tool": ""
   }

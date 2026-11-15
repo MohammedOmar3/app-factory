@@ -2,14 +2,14 @@
 
 Goal: every app ships with a name people search for and a brand a stranger trusts enough to pay for, carried through the app, the store page and the website. Target: right after G1, days 2-3, about 2 days. Sign-offs S1 and S2.
 
-Claude proposes; the user picks and signs off. The user never designs by hand. Visual options live on a Claude Design artifact (canvas) the user reviews and comments on. Figma is an optional upgrade, not required.
+Claude proposes; the user picks and signs off. The user never designs by hand. Visual options live on a Claude Design artifact (canvas) the user reviews and comments on. Figma and Penpot are optional upgrades, not required.
 
 ## Tools
 
 | Need | Tool |
 | --- | --- |
 | Keyword research, store copy knowledge | apple-skills app-store (keyword-optimizer, knowledge only) + WebSearch |
-| Brand board, logo/wordmark, icon and screen mockups | Claude Design artifact (canvas): `Artifact` quickstart with intent `design`, one artboard per direction plus core-loop screens. Optional: Figma MCP (`figma@claude-plugins-official`) if the user has a plan |
+| Brand board, logo/wordmark, icon and screen mockups | Claude Design artifact (canvas): `Artifact` quickstart with intent `design`, one artboard per direction plus core-loop screens. Optional: Figma MCP (`figma@claude-plugins-official`) if the user has a plan, or the Penpot MCP (self-hosted, see `references/setup.md`) if `penpot.templateFileUrl` is set |
 | Icon, logo, splash, illustrations, paywall hero, onboarding art | Hand-written SVG, exported to PNG with `npx -y @resvg/resvg-js-cli in.svg out.png` (needs one-time user approval of the run). Optional: an image-generation MCP for raster art, if one is connected (see `references/setup.md`); never stop the step because none is |
 | Real product evidence: screens, flows, patterns | Lazyweb MCP and skills (`lazyweb-search-screens`, `lazyweb-search-flows`), optional, see `references/setup.md`. Without it: WebSearch, the store pages of the top competitors, and the user's own references |
 | Experience concepts | superpowers:brainstorming (2-3 concepts, the user picks one) |
@@ -22,9 +22,9 @@ Claude proposes; the user picks and signs off. The user never designs by hand. V
 2. **Names.** 3-5 candidates that carry the primary keyword where it reads naturally. For each: App Store and Play search for clashes, a trademark search (record the source and result), and a free `<webBaseUrl>/<slug>` path. Rank them. **S1: the user picks one.** Record in BRAND.md §Name and STATUS.
 3. **Research.** Before any visual work, ask the user for references: apps they use or admire, screenshots, Dribbble shots, and what they like or dislike in each. Then collect real screens and flows of the core loop from the top competitors and adjacent apps (Lazyweb if connected). Write a teardown in BRAND.md §Research: for each app, what works, what doesn't make sense, and what the user should never have to do. Every later choice cites this section.
 4. **Experience concepts.** 2-3 concepts for *how the core loop works and feels*, not how it looks. Each concept: one sentence, the one interaction that makes it different from the teardown apps, the main screen as an ASCII wireframe, and what it removes for the user. Check each against SPEC (no new features; extras go to LATER.md). **The user picks one (or a mix)** before any palette or font is chosen. Record it in BRAND.md §Concept.
-5. **Moodboard directions.** 2-3 visual directions for the chosen concept, each one moodboard on one artifact page (if `app-factory.config.json` `figma.templateFileUrl` is set and the Figma MCP is connected, a Figma board is allowed instead). Each board: the reference images it draws from (and what it takes from each), light and dark palette, type pairing with a specimen, component samples (buttons, rows, cards, the main screen's key component), a logo or wordmark, an icon concept as SVG, and the concept's main screen in that direction. Check each against `tells.md` before showing it. Publish privately and give the user the link; sharing is the user's action. **S2: the user picks one or a mix.** Record the link in BRAND.md §Review board and the decision in STATUS.
+5. **Moodboard directions.** 2-3 visual directions for the chosen concept, each one moodboard on one artifact page (if `app-factory.config.json` `figma.templateFileUrl` is set and the Figma MCP is connected, a Figma board is allowed instead; the same goes for a Penpot board when `penpot.templateFileUrl` is set and the Penpot MCP answers. If `penpot.templateFileUrl` is empty or the Penpot MCP does not answer, use the artifact page and carry on: never offer Penpot as a way forward, and never ask the user to install, configure or start it). Each board: the reference images it draws from (and what it takes from each), light and dark palette, type pairing with a specimen, component samples (buttons, rows, cards, the main screen's key component), a logo or wordmark, an icon concept as SVG, and the concept's main screen in that direction. Check each against `tells.md` before showing it. Publish privately and give the user the link; sharing is the user's action. **S2: the user picks one or a mix.** Record the link in BRAND.md §Review board and the decision in STATUS.
 6. **Brand kit** from the chosen direction:
-   - **Tokens:** semantic colors (light/dark), type scale, radius, spacing. The source of truth is `src/theme/` in the app (with Figma, mirror them as variables).
+   - **Tokens:** semantic colors (light/dark), type scale, radius, spacing. The source of truth is `src/theme/` in the app (with Figma, mirror them as variables; with Penpot, mirror them into the Penpot file. The mirror goes one way only, from `src/theme/` to the board, never back).
    - **Icon:** author as SVG, export with resvg: iOS light, dark and tinted 1024×1024 PNGs (Expo `ios.icon` object, no Mac needed); Android adaptive foreground, background and monochrome; Play 512×512. Keep the SVG sources in `assets/brand/src/`.
    - **Splash:** image and background color for light and dark.
    - **Image style:** write the SVG style rules (shapes, stroke, palette, corner radius) in BRAND.md. If an image MCP is connected, also save 3-5 reference images in `assets/brand/style/` and generate later images with them as references.
@@ -42,6 +42,6 @@ Claude proposes; the user picks and signs off. The user never designs by hand. V
 ## Sign-offs
 
 - **S1 Name:** a name is picked after store and trademark checks.
-- **S2 Direction:** an experience concept is picked, a moodboard direction is picked on the review board (artifact or Figma), and the kit is in BRAND.md.
+- **S2 Direction:** an experience concept is picked, a moodboard direction is picked on the review board (artifact, Figma or Penpot), and the kit is in BRAND.md.
 
 S3 (store set) happens in Phase 6.
