@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: penpot-compose-from-kit
+description: With Penpot configured and a kit catalog, a screen request reads the References and the catalog first and composes from kit components and tokens, never drawing native controls by hand.
+tags: [core, design, tools]
+context:
+  scaffold_script: setup.sh
